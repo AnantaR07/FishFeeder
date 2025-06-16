@@ -4,35 +4,27 @@ import { initializeApp } from "firebase/app";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import { database } from "./api/firebase";
 
-// Firebase Config (replace with your Firebase config)
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL:
-    "https://lelefeeder-59fa5-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
-
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
-export default function HomePage() {
+export default function MealLeleFeeder() {
   const [status, setStatus] = useState("");
   const [logs, setLogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [logsPerPage] = useState(6);
+  const [namaLokasi, setNamaLokasi] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     // Check if the user is logged in
     if (!localStorage.getItem("loggedIn")) {
       alert("Please log in to access this page.");
-      navigate("/login"); // Redirect to login page
+      navigate("/login");
       return;
+    }
+
+    const lokasi = localStorage.getItem("namaLokasi");
+    if (lokasi) {
+      setNamaLokasi(lokasi);
     }
 
     // Fetch status and logs from Firebase
@@ -121,6 +113,11 @@ export default function HomePage() {
         <h1 className="text-4xl font-bold text-center text-teal-700 mb-8 drop-shadow-sm">
           Sistem Otomatis Pakan Lele
         </h1>
+        <h2 className="text-xl text-center text-gray-600 mb-4">
+          Lokasi:{" "}
+          <span className="font-semibold text-teal-700">{namaLokasi}</span>
+        </h2>
+
         <div className="flex justify-center mb-8 gap-4">
           <button
             onClick={handleFeed}

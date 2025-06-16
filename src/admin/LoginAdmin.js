@@ -1,39 +1,16 @@
 import React, { useState } from "react";
-import { initializeApp, getApps } from "firebase/app";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { ref, onValue } from "firebase/database";
 import { useNavigate } from "react-router-dom";
+import { database } from "../api/firebase";
+import { Link } from "react-router-dom";
 
-// Firebase Config
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL:
-    "https://lelefeeder-59fa5-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-};
-
-// Initialize Firebase
-const app =
-  getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-const database = getDatabase(app);
-
-// Ambil data akun
+// Fungsi untuk ambil data akun dari Firebase
 const getAkunData = (callback) => {
   const akunRef = ref(database, "pakanLele/Akun");
-  onValue(
-    akunRef,
-    (snapshot) => {
-      const data = snapshot.val();
-      callback(data || {});
-    },
-    (error) => {
-      console.error("Gagal ambil data akun:", error);
-      callback({});
-    }
-  );
+  onValue(akunRef, (snapshot) => {
+    const data = snapshot.val();
+    callback(data);
+  });
 };
 
 const LoginPage = () => {
@@ -46,13 +23,14 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     getAkunData((akunData) => {
+      // Karena hanya satu akun
       if (akunData.Username === username && akunData.Password === password) {
         setSuccess(true);
         setError("");
         localStorage.setItem("loggedIn", "true");
         setTimeout(() => {
-          navigate("/homepage");
-        }, 5000); // pindah halaman dalam 5 detik
+          navigate("/addcatfishpond");
+        }, 2000);
       } else {
         setError("Username atau Password Salah.");
         setSuccess(false);
@@ -85,9 +63,11 @@ const LoginPage = () => {
             : ""
         }`}
       >
-        <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
-          Login
+        <h2 className="text-3xl font-bold text-center text-blue-600 mb-6 leading-tight">
+          <div>Login</div>
+          <div className="text-gray-600 text-xl">Admin</div>
         </h2>
+
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700 font-semibold mb-2">
@@ -131,6 +111,12 @@ const LoginPage = () => {
           >
             Login
           </button>
+          <Link
+            to="/"
+            className="bg-white text-blue-600 border border-blue-600 py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 hover:text-white transition mt-3 w-full text-center block"
+          >
+            Kembali
+          </Link>
         </form>
 
         {error && (

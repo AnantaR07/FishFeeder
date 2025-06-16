@@ -2,9 +2,25 @@ import React from "react";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
+<style>{`
+        @keyframes gradientX {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        .animate-gradient-x {
+          animation: gradientX 6s ease infinite;
+          background-size: 200% 200%;
+        }
+      `}</style>;
+
 const Profile = () => {
   return (
-    <div>
+    <div className="min-h-screen text-white bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 animate-gradient-x">
       <Navbar />
       <div className="flex items-center justify-center min-h-screen bg-white-500">
         <div className="bg-white p-8 rounded-3xl shadow-2xl w-96 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">

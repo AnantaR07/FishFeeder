@@ -11,9 +11,25 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
+<style>{`
+        @keyframes gradientX {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        .animate-gradient-x {
+          animation: gradientX 6s ease infinite;
+          background-size: 200% 200%;
+        }
+      `}</style>;
+
 const ContactInfo = () => {
   return (
-    <div>
+    <div className="min-h-screen text-white bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 animate-gradient-x">
       <Navbar />
       <div className="flex items-center justify-center min-h-screen bg-white-500">
         <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-lg text-center transform transition-all duration-300 hover:scale-105">
