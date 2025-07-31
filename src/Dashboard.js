@@ -72,25 +72,27 @@ const Dashboard = () => {
           {/* Teks */}
           <div>
             <h2 className="text-4xl font-bold text-blue-600 mb-6">
-              Tentang LeleFeeder
+              Tentang FishFeeder
             </h2>
             <p className="text-lg leading-relaxed mb-5 text-justify">
-              <strong>LeleFeeder</strong> adalah inovasi berbasis teknologi{" "}
+              <strong>FishFeeder</strong> adalah inovasi berbasis teknologi{" "}
               <em>Internet of Things (IoT)</em> yang dirancang untuk memudahkan
-              petani ikan dalam proses pemberian pakan secara otomatis dan
-              efisien.
+              para pembudidaya ikan dalam proses pemberian pakan secara otomatis
+              dan efisien.
             </p>
             <p className="text-lg leading-relaxed mb-5 text-justify">
-              Sistem ini mengandalkan sensor real-time yang dapat mendeteksi
-              kebutuhan pakan dan memberikan makan ikan lele sesuai jadwal
-              maupun kondisi aktual kolam. Hasilnya? Pertumbuhan ikan lebih
-              sehat, panen lebih cepat!
+              Sistem ini mengandalkan sensor real-time yang mampu mendeteksi
+              kebutuhan pakan serta memberikan pakan ikan secara terjadwal atau
+              berdasarkan kondisi aktual air dan perilaku ikan. Hasilnya?
+              Pertumbuhan ikan menjadi lebih optimal, risiko kekurangan atau
+              kelebihan pakan dapat diminimalkan.
             </p>
             <p className="text-lg leading-relaxed mb-8 text-justify">
-              Didukung dashboard monitoring jarak jauh dan desain antarmuka yang
-              ramah pengguna,{" "}
-              <span className="font-semibold text-blue-500">LeleFeeder</span>{" "}
-              adalah solusi modern bagi budidaya ikan masa kini.
+              Dilengkapi dengan dashboard pemantauan jarak jauh serta antarmuka
+              yang intuitif dan mudah digunakan,{" "}
+              <span className="font-semibold text-blue-500">FishFeeder</span>{" "}
+              menjadi solusi cerdas untuk mendukung budidaya ikan modern dan
+              berkelanjutan.
             </p>
           </div>
         </div>
@@ -99,7 +101,7 @@ const Dashboard = () => {
       <div className="container mx-auto px-4 py-6 mt-5">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-3xl font-bold text-white drop-shadow">
-            Dashboard Lokasi Pakan Lele
+            Dashboard Lokasi Pakan Ikan
           </h2>
           <div>
             <Link
@@ -195,7 +197,7 @@ const Dashboard = () => {
                   to="/loginuser"
                   className="h-fit px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition duration-300 mt-5"
                 >
-                  Kasih Makan Lele
+                  Kasih Makan Ikan
                 </Link>
               </div>
             )

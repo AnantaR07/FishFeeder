@@ -54,6 +54,7 @@ function LoginPage() {
       setError("");
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("namaLokasi", user.namaLokasi);
+      localStorage.setItem("username", user.username);
 
       setTimeout(() => {
         navigate("/meallelefeeder");

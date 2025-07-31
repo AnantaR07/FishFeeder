@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ref, push, set, onValue, remove, update } from "firebase/database";
 import { database } from "../api/firebase";
-import Navbar from "../components/navbar";
+import NavbarAdmin from "../components/navbarAdmin";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -205,12 +205,12 @@ const AddCatfishPond = () => {
 
   return (
     <div className="bg-gradient-to-br from-blue-50 via-white to-blue-100 ">
-      <Navbar />
+      <NavbarAdmin />
 
       {/* Form Tambah/Edit */}
       <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
         <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">
-          {editId ? "Edit Data Kolam Lele" : "Tambah Data Kolam Lele"}
+          {editId ? "Edit Data Kolam Ikan" : "Tambah Data Kolam Ikan"}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -361,7 +361,7 @@ const AddCatfishPond = () => {
       {/* Tabel Data */}
       <div className="max-w-5xl mx-auto mt-10 bg-white p-4 rounded-lg shadow-md overflow-x-auto">
         <h3 className="text-xl font-bold text-center mb-4 text-green-700">
-          Data Kolam Lele
+          Data Kolam Ikan
         </h3>
         <table className="w-full text-sm border border-collapse">
           <thead>

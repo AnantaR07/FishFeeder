@@ -32,8 +32,7 @@ function Footer() {
 
         {/* Copyright */}
         <p className="text-xs md:text-sm text-white/90">
-          &copy; {new Date().getFullYear()} Sistem Otomatis Pakan Lele. All
-          rights reserved.
+          &copy; {new Date().getFullYear()} FishFeeder. All rights reserved.
         </p>
       </div>
     </footer>

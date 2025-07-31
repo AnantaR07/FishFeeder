@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleBerandaClick = () => {
     // Navigasi ke halaman /homepage terlebih dahulu
-    navigate("/homepage", { replace: true });
+    navigate("/", { replace: true });
     // Kemudian navigasi ke halaman login
   };
 
@@ -21,13 +21,11 @@ const Navbar = () => {
         {/* Logo & Nama Brand */}
         <div className="flex items-center space-x-3 text-white font-bold">
           <img
-            src="/lelefeeder.png"
+            src="/fishfeeder.png"
             alt="Logo"
             className="w-20 h-20 rounded-full object-contain shadow-lg"
           />
-          <span className="text-xl tracking-wide">
-            Sistem Otomatis Pakan Lele
-          </span>
+          <span className="text-xl tracking-wide">FishFeeder</span>
         </div>
 
         {/* Tombol Menu Hamburger */}
