@@ -16,7 +16,4 @@ A smart fish feeding system built using **React** for the frontend interface. Th
 - 📡 IoT-enabled hardware (e.g., ESP32 + Servo motor)
 - 📦 Optional backend: Firebase / Node.js 
 
-
-
-```bash
-npm install
+---
